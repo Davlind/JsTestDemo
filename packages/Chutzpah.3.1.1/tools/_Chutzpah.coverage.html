@@ -1,0 +1,193 @@
+
+<html>
+<head>
+    <title>Chutzpah Code Coverage Results</title>
+    <script type='text/javascript'>
+        
+function chutzpah_toggleSource(id) {
+        var element = document.getElementById(id);
+        if(element.style.display === 'block') {
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+        }
+    }
+
+    </script>
+    <style>
+        
+#chutzpah-main
+{
+  background:#EEE;
+  clear:both;
+  color:#333;
+  font-family:'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Calibri, Helvetica, Arial, sans-serif;
+  font-size:17px;
+  margin:2px;
+}
+
+#chutzpah-main a
+{
+  color:#333;
+  text-decoration:none;
+}
+
+#chutzpah-main a:hover
+{
+  text-decoration:underline;
+}
+
+.chutzpah
+{
+  border-bottom:1px solid #FFF;
+  clear:both;
+  margin:0;
+  padding:5px;
+}
+
+.chutzpah-error
+{
+  color:red;
+}
+
+.chutzpah-success
+{
+  color:#5E7D00;
+}
+
+.chutzpah-file
+{
+  width:auto;
+}
+
+.chutzpah-cl
+{
+  float:left;
+}
+
+.chutzpah div.rs
+{
+  float:right;
+  margin-left:50px;
+  width:150px;
+}
+
+.chutzpah-nb
+{
+  padding-right:10px;
+}
+
+#chutzpah-main a.chutzpah-logo
+{
+  color:#3245FF;
+  cursor:pointer;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.chutzpah-source
+{
+  background-color:#FFF;
+  border:1px solid #CBCBCB;
+  color:#363636;
+  margin:25px 20px;
+  overflow-x:scroll;
+  width:80%;
+}
+
+.chutzpah-source div
+{
+  white-space:nowrap;
+}
+
+.chutzpah-source span
+{
+  background-color:#EAEAEA;
+  color:#949494;
+  display:inline-block;
+  padding:0 10px;
+  text-align:center;
+}
+
+.chutzpah-source .miss
+{
+  background-color:#e6c3c7;
+}
+
+    </style>
+</head>
+<body>
+<div id='chutzpah-main'>
+	<div class='chutzpah chutzpah-title'>
+		<div class='chutzpah-cl chutzpah-file'>
+			<a href='http://chutzpah.codeplex.com/' target='_blank' class='chutzpah-logo'>Chutzpah</a> code coverage via <a href='http://blanketjs.org' target='_blank' class='chutzpah-logo'>blanket.js</a> results
+		</div>
+		<div class='chutzpah-cl rs'>
+			Coverage (%)
+		</div>
+		<div class='chutzpah-cl rs'>
+			Covered/Total Smts.
+		</div>
+		<div style='clear:both;'>
+		</div>
+	</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>1.</span><a href='javascript:chutzpah_toggleSource("file-1")'>c:\sd\JsTestDemo\JsTestDemo\app\dashboard\creditcard.js</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		22/22
+	</div>
+	<div id='file-1' class='chutzpah-source' style='display:none;'>
+		 <div class='hit'><span class=''>1</span>function isCreditCardValid(s) {</div> <div class=''><span class=''>2</span></div> <div class='hit'><span class=''>3</span>    var i, n, c, r, t;</div> <div class=''><span class=''>4</span></div> <div class=''><span class=''>5</span>    // First, reverse the string and remove any non-numeric characters.</div> <div class=''><span class=''>6</span></div> <div class='hit'><span class=''>7</span>    r = &quot;&quot;;</div> <div class='hit'><span class=''>8</span>    for (i = 0; i &lt; s.length; i++) {</div> <div class='hit'><span class=''>9</span>        c = parseInt(s.charAt(i), 10);</div> <div class='hit'><span class=''>10</span>        if (c &gt;= 0 &amp;&amp; c &lt;= 9)</div> <div class='hit'><span class=''>11</span>            r = c + r;</div> <div class=''><span class=''>12</span>    }</div> <div class=''><span class=''>13</span></div> <div class=''><span class=''>14</span>    // Check for a bad string.</div> <div class=''><span class=''>15</span></div> <div class='hit'><span class=''>16</span>    if (r.length &lt; 16)</div> <div class='hit'><span class=''>17</span>        throw Error(&quot;Invalid credit card number&quot;);</div> <div class=''><span class=''>18</span></div> <div class=''><span class=''>19</span>    // Now run through each single digit to create a new string. Even digits</div> <div class=''><span class=''>20</span>    // are multiplied by two, odd digits are left alone.</div> <div class=''><span class=''>21</span></div> <div class='hit'><span class=''>22</span>    t = &quot;&quot;;</div> <div class='hit'><span class=''>23</span>    for (i = 0; i &lt; r.length; i++) {</div> <div class='hit'><span class=''>24</span>        c = parseInt(r.charAt(i), 10);</div> <div class='hit'><span class=''>25</span>        if (i % 2 != 0)</div> <div class='hit'><span class=''>26</span>            c *= 2;</div> <div class='hit'><span class=''>27</span>        t = t + c;</div> <div class=''><span class=''>28</span>    }</div> <div class=''><span class=''>29</span></div> <div class=''><span class=''>30</span>    // Finally, add up all the single digits in this string.</div> <div class=''><span class=''>31</span></div> <div class='hit'><span class=''>32</span>    n = 0;</div> <div class='hit'><span class=''>33</span>    for (i = 0; i &lt; t.length; i++) {</div> <div class='hit'><span class=''>34</span>        c = parseInt(t.charAt(i), 10);</div> <div class='hit'><span class=''>35</span>        n = n + c;</div> <div class=''><span class=''>36</span>    }</div> <div class=''><span class=''>37</span></div> <div class=''><span class=''>38</span>    // If the resulting sum is an even multiple of ten (but not zero), the</div> <div class=''><span class=''>39</span>    // card number is good.</div> <div class=''><span class=''>40</span></div> <div class='hit'><span class=''>41</span>    if (n != 0 &amp;&amp; n % 10 == 0)</div> <div class='hit'><span class=''>42</span>        return true;</div> <div class=''><span class=''>43</span>    else</div> <div class='hit'><span class=''>44</span>        return false;</div> <div class='{{executed}}'><span class=''>45</span>}</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>2.</span><a href='javascript:chutzpah_toggleSource("file-2")'>c:\sd\JsTestDemo\JsTestDemo.Jasmine.Tests\Tests\CreditCardTest.js</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		10/10
+	</div>
+	<div id='file-2' class='chutzpah-source' style='display:none;'>
+		 <div class=''><span class=''>1</span>/// &lt;chutzpah_reference path=&quot;../../JsTestDemo/app/dashboard/creditcard.js&quot; /&gt;</div> <div class=''><span class=''>2</span></div> <div class='hit'><span class=''>3</span>describe(&quot;Credit Card number&quot;, function () {</div> <div class='hit'><span class=''>4</span>    it(&quot;should return true when valid&quot;, function () {</div> <div class='hit'><span class=''>5</span>        expect(isCreditCardValid(&quot;1234567890123452&quot;)).toEqual(true);</div> <div class=''><span class=''>6</span></div> <div class='hit'><span class=''>7</span>        expect(isCreditCardValid(&quot;4627383674323741&quot;)).toEqual(true);</div> <div class=''><span class=''>8</span></div> <div class='hit'><span class=''>9</span>        expect(isCreditCardValid(&quot;7238562784627463&quot;)).toEqual(true);</div> <div class=''><span class=''>10</span>    });</div> <div class=''><span class=''>11</span></div> <div class='hit'><span class=''>12</span>    it(&quot;should return false when invalid&quot;, function () {</div> <div class='hit'><span class=''>13</span>        expect(isCreditCardValid(&quot;4723847238643764&quot;)).toEqual(false);</div> <div class=''><span class=''>14</span>    });</div> <div class=''><span class=''>15</span></div> <div class='hit'><span class=''>16</span>    it(&quot;should throw exception when number is invalid&quot;, function () {</div> <div class='hit'><span class=''>17</span>        expect(function () {</div> <div class='hit'><span class=''>18</span>            isCreditCardValid(&quot;ABCDEFG&quot;);</div> <div class='{{executed}}'><span class=''>19</span>        }).toThrow(new Error(&quot;Invalid credit card number&quot;));</div> <div class='{{executed}}'><span class=''>20</span>    });</div> <div class='{{executed}}'><span class=''>21</span>})</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>3.</span><a href='javascript:chutzpah_toggleSource("file-3")'>Total</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		32/32
+	</div>
+	<div id='file-3' class='chutzpah-source' style='display:none;'>
+		
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+</div>
+</body>
+</html>
+
