@@ -2,8 +2,11 @@
 
     var i, n, c, r, t;
 
-    // First, reverse the string and remove any non-numeric characters.
-
+    var reg = new RegExp('^\\d+$');
+    if (!reg.test(s)) {
+        throw Error("Credit card number must be a numeric value");
+    }
+    
     r = "";
     for (i = 0; i < s.length; i++) {
         c = parseInt(s.charAt(i), 10);
@@ -11,10 +14,10 @@
             r = c + r;
     }
 
-    // Check for a bad string.
+    // Check for invalid length.
 
-    if (r.length < 16)
-        throw Error("Invalid credit card number");
+    if (r.length !== 16)
+        throw Error("Credit card number is not of correct length");
 
     // Now run through each single digit to create a new string. Even digits
     // are multiplied by two, odd digits are left alone.
@@ -42,4 +45,4 @@
         return true;
     else
         return false;
-}
+}
