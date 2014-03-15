@@ -7,5 +7,13 @@ describe("Credit card", function () {
         expect(app.creditCard.isValid("7238562784627463")).toEqual(true);
     });
 
-    it("is invalid when the luhn check fails", function () {                         expect(app.creditCard.isValid("4723847238643764")).toEqual(false);       });     it("should throw exception when number is invalid", function () {                expect(function() {                                                              app.creditCard.isValid("ABCDEFG");                                       }).toThrow(new Error("Credit card number must be a numeric value"));    });
+    it("is invalid when the luhn check fails", function () {                 
+        expect(app.creditCard.isValid("4723847238643764")).toEqual(false);   
+    }); 
+
+    it("should throw exception when number is invalid", function () {        
+        expect(function() {                                                  
+            app.creditCard.isValid("ABCDEFG");                               
+        }).toThrow(new Error("Credit card number must be a numeric value"));
+    });
 });
